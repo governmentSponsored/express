@@ -20,9 +20,8 @@ app.get('/blocks', function(request, response) {
 
 app.get('/blocksTwo', function(request, response) {
 	var blocks = '<ul><li>stanimal</li></ul>'
-	//response.send(blocks);
-	//response.json helps the response read better.
-	response.json(blocks);
+	//send some html
+	response.send(blocks);
 });
 
 app.listen(3000, function() {
