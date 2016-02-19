@@ -11,6 +11,7 @@ app.get('/', function(request, response) {
 	response.end();
 });
 
+//respond with JSON
 app.get('/blocks', function(request, response) {
 	var blocks = ['Fixed','Movable','Rotating','banana'];
 	//response.send(blocks);
@@ -18,10 +19,19 @@ app.get('/blocks', function(request, response) {
 	response.json(blocks);
 });
 
+//respond with HTML
 app.get('/blocksTwo', function(request, response) {
 	var blocks = '<ul><li>stanimal</li></ul>'
-	//send some html
+	//send some html, not typically done with express. Look into EJS or Jade to do this type of templating HTML.
 	response.send(blocks);
+});
+
+//redirect to relative path
+app.get('/blocksThree', function(request, response) {
+	var blocks = '<ul><li>stanimal</li></ul>'
+	//will show a 302 Moved Temporarily
+	//add 301 argument to permanently redirect: redirect(301,'/parts')
+	response.redirect('/parts');
 });
 
 app.listen(3000, function() {
